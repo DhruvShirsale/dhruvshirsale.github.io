@@ -22,9 +22,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--navy);
       color: var(--text);
@@ -33,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -54,7 +51,6 @@
     }
     .nav-links a:hover { color: var(--bright); }
 
-    /* ─── HERO ─── */
     .hero {
       min-height: 100vh; display: flex; align-items: center;
       padding: 120px 48px 80px;
@@ -88,9 +84,7 @@
       line-height: 1.05; color: var(--white);
       margin-bottom: 8px;
     }
-    .hero h1 em {
-      font-style: italic; color: var(--bright);
-    }
+    .hero h1 em { font-style: italic; color: var(--bright); }
     .hero-sub {
       font-family: 'DM Mono', monospace;
       font-size: 14px; color: var(--accent); letter-spacing: 1px;
@@ -100,40 +94,29 @@
       font-size: 16px; line-height: 1.7; color: var(--muted);
       max-width: 600px; margin-bottom: 40px;
     }
-    .hero-cta {
-      display: flex; gap: 16px; flex-wrap: wrap;
-    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-primary {
       padding: 13px 32px; border: 1px solid var(--accent);
       background: rgba(46,117,182,0.15);
       color: var(--bright); font-size: 13px; letter-spacing: 1px;
-      text-transform: uppercase; text-decoration: none;
-      transition: all 0.25s; cursor: pointer;
+      text-transform: uppercase; text-decoration: none; transition: all 0.25s;
     }
     .btn-primary:hover { background: rgba(46,117,182,0.35); border-color: var(--bright); }
     .btn-outline {
       padding: 13px 32px; border: 1px solid rgba(255,255,255,0.15);
-      background: transparent;
-      color: var(--muted); font-size: 13px; letter-spacing: 1px;
-      text-transform: uppercase; text-decoration: none;
-      transition: all 0.25s;
+      background: transparent; color: var(--muted); font-size: 13px; letter-spacing: 1px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.25s;
     }
     .btn-outline:hover { border-color: var(--muted); color: var(--white); }
-
-    /* Badge strip */
-    .badge-strip {
-      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px;
-    }
+    .badge-strip { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
     .badge {
       font-family: 'DM Mono', monospace;
       font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 6px 14px;
-      border: 1px solid rgba(46,117,182,0.35);
+      padding: 6px 14px; border: 1px solid rgba(46,117,182,0.35);
       color: var(--bright); background: rgba(46,117,182,0.08);
     }
     .badge.gold { border-color: rgba(201,168,76,0.4); color: var(--gold); background: rgba(201,168,76,0.06); }
 
-    /* ─── SECTION SHELL ─── */
     section { padding: 96px 48px; }
     .section-tag {
       font-family: 'DM Mono', monospace;
@@ -147,201 +130,111 @@
       font-size: clamp(32px, 4vw, 48px); color: var(--white);
       margin-bottom: 56px; max-width: 600px;
     }
-    .section-divider {
-      border: none; border-top: 1px solid rgba(46,117,182,0.15);
-      margin: 0 48px;
-    }
+    .section-divider { border: none; border-top: 1px solid rgba(46,117,182,0.15); margin: 0 48px; }
 
-    /* ─── SKILLS ─── */
     #skills { background: var(--deep); }
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2px;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; }
     .skill-card {
-      padding: 32px 28px;
-      background: rgba(10,22,40,0.6);
-      border: 1px solid rgba(46,117,182,0.1);
-      transition: all 0.3s;
-      position: relative; overflow: hidden;
+      padding: 32px 28px; background: rgba(10,22,40,0.6);
+      border: 1px solid rgba(46,117,182,0.1); transition: all 0.3s; position: relative; overflow: hidden;
     }
     .skill-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px; background: var(--accent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s;
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent); transform: scaleX(0);
+      transform-origin: left; transition: transform 0.3s;
     }
     .skill-card:hover::before { transform: scaleX(1); }
     .skill-card:hover { background: rgba(46,117,182,0.08); }
     .skill-card.featured { border-color: rgba(46,117,182,0.4); background: rgba(46,117,182,0.06); }
     .skill-card.featured::before { transform: scaleX(1); background: var(--bright); }
-    .skill-icon {
-      font-size: 22px; margin-bottom: 14px;
-    }
+    .skill-icon { font-size: 22px; margin-bottom: 14px; }
     .skill-name {
       font-family: 'DM Mono', monospace;
       font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
       color: var(--bright); margin-bottom: 10px;
     }
-    .skill-tags {
-      display: flex; flex-wrap: wrap; gap: 6px;
-    }
-    .skill-tag {
-      font-size: 11px; color: var(--muted);
-      padding: 3px 8px; border: 1px solid rgba(255,255,255,0.08);
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { font-size: 11px; color: var(--muted); padding: 3px 8px; border: 1px solid rgba(255,255,255,0.08); }
     .skill-tag.hl { color: var(--bright); border-color: rgba(79,163,224,0.3); }
 
-    /* ─── EXPERIENCE ─── */
     #experience { background: var(--navy); }
     .exp-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
     .exp-item {
-      display: grid; grid-template-columns: 160px 1fr;
-      gap: 0 40px;
-      padding: 40px 0;
-      border-bottom: 1px solid rgba(46,117,182,0.1);
+      display: grid; grid-template-columns: 160px 1fr; gap: 0 40px;
+      padding: 40px 0; border-bottom: 1px solid rgba(46,117,182,0.1);
     }
     .exp-item:first-child { border-top: 1px solid rgba(46,117,182,0.1); }
-    .exp-date {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: 1px; color: var(--muted);
-      padding-top: 4px;
-    }
-    .exp-company {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 6px;
-    }
-    .exp-role {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px; color: var(--white); margin-bottom: 16px;
-    }
+    .exp-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--muted); padding-top: 4px; }
+    .exp-company { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .exp-role { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--white); margin-bottom: 16px; }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .exp-bullets li {
-      font-size: 14px; line-height: 1.6; color: var(--muted);
-      padding-left: 18px; position: relative;
-    }
-    .exp-bullets li::before {
-      content: '—'; position: absolute; left: 0; color: var(--accent);
-      font-size: 12px;
-    }
+    .exp-bullets li { font-size: 14px; line-height: 1.6; color: var(--muted); padding-left: 18px; position: relative; }
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
     .exp-bullets li strong { color: var(--text); font-weight: 500; }
 
-    /* ─── PROJECTS ─── */
     #projects { background: var(--deep); }
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
     .project-card {
-      padding: 36px 32px;
-      border: 1px solid rgba(46,117,182,0.15);
-      background: rgba(10,22,40,0.5);
-      transition: all 0.3s; position: relative;
+      padding: 36px 32px; border: 1px solid rgba(46,117,182,0.15);
+      background: rgba(10,22,40,0.5); transition: all 0.3s;
     }
     .project-card:hover { border-color: rgba(46,117,182,0.5); transform: translateY(-4px); }
-    .project-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 2px; color: var(--accent);
-      margin-bottom: 20px;
-    }
-    .project-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px; color: var(--white); margin-bottom: 12px;
-    }
-    .project-desc {
-      font-size: 13px; line-height: 1.65; color: var(--muted); margin-bottom: 20px;
-    }
-    .project-tech {
-      display: flex; flex-wrap: wrap; gap: 6px;
-    }
-    .tech-pill {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1px; padding: 4px 10px;
-      border: 1px solid rgba(46,117,182,0.3); color: var(--accent);
-    }
+    .project-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); margin-bottom: 20px; }
+    .project-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
+    .project-desc { font-size: 13px; line-height: 1.65; color: var(--muted); margin-bottom: 20px; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-pill { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 4px 10px; border: 1px solid rgba(46,117,182,0.3); color: var(--accent); }
 
-    /* ─── AI TOOLS ─── */
     #ai-tools { background: var(--navy); }
     .ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-    .ai-card {
-      padding: 28px 24px;
-      border: 1px solid rgba(201,168,76,0.2);
-      background: rgba(201,168,76,0.04);
-      transition: all 0.25s;
-    }
+    .ai-card { padding: 28px 24px; border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.04); transition: all 0.25s; }
     .ai-card:hover { background: rgba(201,168,76,0.09); }
-    .ai-card-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px; letter-spacing: 1px; color: var(--gold);
-      margin-bottom: 8px;
-    }
+    .ai-card-name { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 1px; color: var(--gold); margin-bottom: 8px; }
     .ai-card-use { font-size: 12px; line-height: 1.5; color: var(--muted); }
     .cert-banner {
       margin-top: 40px; padding: 24px 32px;
-      border: 1px solid rgba(201,168,76,0.35);
-      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.35); background: rgba(201,168,76,0.06);
       display: flex; align-items: center; gap: 20px;
     }
     .cert-icon { font-size: 28px; }
     .cert-text { font-size: 14px; line-height: 1.5; color: var(--text); }
     .cert-text strong { color: var(--gold); }
 
-    /* ─── CERTS ─── */
     #certifications { background: var(--deep); }
     .cert-list { display: flex; flex-direction: column; gap: 12px; max-width: 700px; }
     .cert-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 24px;
-      border: 1px solid rgba(46,117,182,0.12);
-      background: rgba(10,22,40,0.4);
-      transition: all 0.2s;
+      padding: 18px 24px; border: 1px solid rgba(46,117,182,0.12);
+      background: rgba(10,22,40,0.4); transition: all 0.2s;
     }
     .cert-row:hover { border-color: rgba(46,117,182,0.35); background: rgba(46,117,182,0.05); }
     .cert-title { font-size: 14px; color: var(--text); }
-    .cert-issuer {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1px; color: var(--muted);
-      text-transform: uppercase;
-    }
-    .cert-status {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1px; padding: 4px 10px;
-      white-space: nowrap;
-    }
+    .cert-issuer { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+    .cert-status { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 4px 10px; white-space: nowrap; }
     .cert-status.active { border: 1px solid rgba(79,163,224,0.4); color: var(--bright); }
     .cert-status.verified { border: 1px solid rgba(46,182,125,0.4); color: #5de0a8; }
     .cert-status.done { border: 1px solid rgba(255,255,255,0.12); color: var(--muted); }
 
-    /* ─── CONTACT ─── */
     #contact { background: var(--navy); }
     .contact-inner { max-width: 600px; }
     .contact-inner p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 40px; }
     .contact-links { display: flex; flex-direction: column; gap: 12px; }
     .contact-link {
-      display: flex; align-items: center; gap: 16px;
-      padding: 18px 24px;
-      border: 1px solid rgba(46,117,182,0.15);
-      text-decoration: none; color: var(--text);
-      transition: all 0.25s;
+      display: flex; align-items: center; gap: 16px; padding: 18px 24px;
+      border: 1px solid rgba(46,117,182,0.15); text-decoration: none;
+      color: var(--text); transition: all 0.25s;
     }
     .contact-link:hover { border-color: rgba(46,117,182,0.5); background: rgba(46,117,182,0.06); }
-    .contact-link-icon {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1px; color: var(--accent);
-      text-transform: uppercase; min-width: 60px;
-    }
+    .contact-link-icon { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--accent); text-transform: uppercase; min-width: 60px; }
     .contact-link-val { font-size: 14px; }
 
-    /* ─── FOOTER ─── */
     footer {
-      padding: 32px 48px;
-      border-top: 1px solid rgba(46,117,182,0.12);
+      padding: 32px 48px; border-top: 1px solid rgba(46,117,182,0.12);
       display: flex; justify-content: space-between; align-items: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted);
+      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
     }
 
-    /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
@@ -360,7 +253,6 @@
       section { padding: 72px 24px; }
       .hero { padding: 100px 24px 60px; }
       .exp-item { grid-template-columns: 1fr; gap: 8px; }
-      .exp-date { font-size: 10px; }
       footer { padding: 24px; flex-direction: column; gap: 8px; }
       .section-divider { margin: 0 24px; }
     }
@@ -368,7 +260,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">DS</div>
     <ul class="nav-links">
@@ -382,7 +273,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="about">
     <div class="hero-inner">
       <div class="hero-tag">Available for SQL Developer roles</div>
@@ -401,19 +291,17 @@
         <span class="badge">Star Schema</span>
         <span class="badge">Azure Synapse</span>
         <span class="badge">Index Tuning</span>
-        <span class="badge gold">🎓 Anthropic Cert — In Progress</span>
+        <span class="badge gold">Anthropic Cert — In Progress</span>
       </div>
     </div>
   </section>
 
   <hr class="section-divider"/>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="section-tag">Core Competencies</div>
     <h2 class="section-title">Built around SQL. Powered by data.</h2>
     <div class="skills-grid">
-
       <div class="skill-card featured">
         <div class="skill-icon">🗄️</div>
         <div class="skill-name">T-SQL / MS SQL</div>
@@ -426,7 +314,6 @@
           <span class="skill-tag hl">MERGE</span>
         </div>
       </div>
-
       <div class="skill-card featured">
         <div class="skill-icon">⚡</div>
         <div class="skill-name">Query Optimisation</div>
@@ -437,7 +324,6 @@
           <span class="skill-tag hl">SSMS Profiler</span>
         </div>
       </div>
-
       <div class="skill-card featured">
         <div class="skill-icon">📐</div>
         <div class="skill-name">Dimensional Modelling</div>
@@ -449,7 +335,6 @@
           <span class="skill-tag hl">Normalisation</span>
         </div>
       </div>
-
       <div class="skill-card">
         <div class="skill-icon">☁️</div>
         <div class="skill-name">Azure Data Platform</div>
@@ -460,7 +345,6 @@
           <span class="skill-tag">PySpark</span>
         </div>
       </div>
-
       <div class="skill-card">
         <div class="skill-icon">📊</div>
         <div class="skill-name">BI & Reporting</div>
@@ -470,7 +354,6 @@
           <span class="skill-tag">Excel (Advanced)</span>
         </div>
       </div>
-
       <div class="skill-card">
         <div class="skill-icon">🛠️</div>
         <div class="skill-name">Dev & Ops</div>
@@ -481,18 +364,15 @@
           <span class="skill-tag">Data Validation</span>
         </div>
       </div>
-
     </div>
   </section>
 
   <hr class="section-divider"/>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-tag">Work History</div>
     <h2 class="section-title">Real-world SQL, shipped.</h2>
     <div class="exp-list">
-
       <div class="exp-item">
         <div class="exp-date">Jan 2025<br/>Mar 2025</div>
         <div>
@@ -507,20 +387,18 @@
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-date">Oct 2025<br/>Jan 2026</div>
         <div>
           <div class="exp-company">Qtrans Translation Inc.</div>
-          <div class="exp-role">Management & Data Operations Intern <span style="font-size:13px;color:var(--gold)">(Paid)</span></div>
+          <div class="exp-role">Management &amp; Data Operations Intern (Paid)</div>
           <ul class="exp-bullets">
-            <li>Managed &amp; audited vendor databases for 200+ profiles per project — applying SQL-style data integrity and deduplication practices in Excel.</li>
+            <li>Managed &amp; audited vendor databases for 200+ profiles per project applying SQL-style data integrity and deduplication practices.</li>
             <li>Designed structured intake templates reducing manual errors in onboarding workflows.</li>
             <li>Used <strong>Claude, Gemini, Perplexity</strong> to accelerate data transformation and lookup logic.</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-date">Jun 2025</div>
         <div>
@@ -532,18 +410,15 @@
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
   <hr class="section-divider"/>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-tag">SQL Projects</div>
     <h2 class="section-title">T-SQL, built end-to-end.</h2>
     <div class="projects-grid">
-
       <div class="project-card">
         <div class="project-num">01 / IntelliBI</div>
         <div class="project-title">Healthcare Data Pipeline</div>
@@ -556,7 +431,6 @@
           <span class="tech-pill">MERGE</span>
         </div>
       </div>
-
       <div class="project-card">
         <div class="project-num">02 / IntelliBI</div>
         <div class="project-title">Sales Analytics Dimensional Model</div>
@@ -568,7 +442,6 @@
           <span class="tech-pill">Git</span>
         </div>
       </div>
-
       <div class="project-card">
         <div class="project-num">03 / Personal</div>
         <div class="project-title">Vendor DB Normalisation</div>
@@ -580,13 +453,11 @@
           <span class="tech-pill">Referential Integrity</span>
         </div>
       </div>
-
     </div>
   </section>
 
   <hr class="section-divider"/>
 
-  <!-- AI TOOLS -->
   <section id="ai-tools">
     <div class="section-tag">AI-Augmented Workflow</div>
     <h2 class="section-title">SQL + AI — a modern stack.</h2>
@@ -619,7 +490,6 @@
 
   <hr class="section-divider"/>
 
-  <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="section-tag">Credentials</div>
     <h2 class="section-title">Verified learning.</h2>
@@ -633,7 +503,7 @@
       </div>
       <div class="cert-row">
         <div>
-          <div class="cert-title">IBM Z Day 2025 — AI & Data Badge</div>
+          <div class="cert-title">IBM Z Day 2025 — AI &amp; Data Badge</div>
           <div class="cert-issuer">IBM · Credly</div>
         </div>
         <span class="cert-status verified">Verified</span>
@@ -647,7 +517,7 @@
       </div>
       <div class="cert-row">
         <div>
-          <div class="cert-title">SAP MM ERP 7 — Sourcing & Procurement</div>
+          <div class="cert-title">SAP MM ERP 7 — Sourcing &amp; Procurement</div>
           <div class="cert-issuer">SAP Education</div>
         </div>
         <span class="cert-status done">2021</span>
@@ -664,7 +534,6 @@
 
   <hr class="section-divider"/>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-tag">Get in Touch</div>
     <h2 class="section-title">Let's build something with data.</h2>
