@@ -9,252 +9,108 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --navy: #0A1628;
-      --deep: #0D1F3C;
-      --mid: #1A3A6B;
-      --accent: #2E75B6;
-      --bright: #4FA3E0;
-      --gold: #C9A84C;
-      --light: #E8F2FB;
-      --muted: #8FAABF;
-      --white: #F5F9FD;
-      --text: #D0E4F5;
+      --navy: #0A1628; --deep: #0D1F3C; --accent: #2E75B6;
+      --bright: #4FA3E0; --gold: #C9A84C; --muted: #8FAABF;
+      --white: #F5F9FD; --text: #D0E4F5;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--navy);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 48px;
-      background: rgba(10,22,40,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(46,117,182,0.18);
-    }
-    .nav-logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px; letter-spacing: 2px; color: var(--bright);
-      text-transform: uppercase;
-    }
+    body { background: var(--navy); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(10,22,40,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(46,117,182,0.18); }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--bright); text-transform: uppercase; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-links a { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--bright); }
-
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 120px 48px 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(46,117,182,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -100px; left: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner { max-width: 900px; position: relative; z-index: 1; }
-    .hero-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: 3px; color: var(--gold);
-      text-transform: uppercase; margin-bottom: 24px;
-      display: flex; align-items: center; gap: 12px;
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(46,117,182,0.15) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 860px; position: relative; z-index: 1; }
+    .hero-tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
     .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(48px, 7vw, 88px);
-      line-height: 1.05; color: var(--white);
-      margin-bottom: 8px;
-    }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(48px, 7vw, 88px); line-height: 1.05; color: var(--white); margin-bottom: 8px; }
     .hero h1 em { font-style: italic; color: var(--bright); }
-    .hero-sub {
-      font-family: 'DM Mono', monospace;
-      font-size: 14px; color: var(--accent); letter-spacing: 1px;
-      margin-bottom: 28px; margin-top: 12px;
-    }
-    .hero-desc {
-      font-size: 16px; line-height: 1.7; color: var(--muted);
-      max-width: 600px; margin-bottom: 40px;
-    }
+    .hero-sub { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--accent); letter-spacing: 1px; margin-bottom: 28px; margin-top: 12px; }
+    .hero-desc { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 580px; margin-bottom: 40px; }
     .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      padding: 13px 32px; border: 1px solid var(--accent);
-      background: rgba(46,117,182,0.15);
-      color: var(--bright); font-size: 13px; letter-spacing: 1px;
-      text-transform: uppercase; text-decoration: none; transition: all 0.25s;
-    }
-    .btn-primary:hover { background: rgba(46,117,182,0.35); border-color: var(--bright); }
-    .btn-outline {
-      padding: 13px 32px; border: 1px solid rgba(255,255,255,0.15);
-      background: transparent; color: var(--muted); font-size: 13px; letter-spacing: 1px;
-      text-transform: uppercase; text-decoration: none; transition: all 0.25s;
-    }
+    .btn-primary { padding: 13px 32px; border: 1px solid var(--accent); background: rgba(46,117,182,0.15); color: var(--bright); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; }
+    .btn-primary:hover { background: rgba(46,117,182,0.32); }
+    .btn-outline { padding: 13px 32px; border: 1px solid rgba(255,255,255,0.15); background: transparent; color: var(--muted); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; }
     .btn-outline:hover { border-color: var(--muted); color: var(--white); }
-    .badge-strip { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
-    .badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 6px 14px; border: 1px solid rgba(46,117,182,0.35);
-      color: var(--bright); background: rgba(46,117,182,0.08);
-    }
+    .badge-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 40px; }
+    .badge { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border: 1px solid rgba(46,117,182,0.35); color: var(--bright); background: rgba(46,117,182,0.08); }
     .badge.gold { border-color: rgba(201,168,76,0.4); color: var(--gold); background: rgba(201,168,76,0.06); }
-
     section { padding: 96px 48px; }
-    .section-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 3px; color: var(--gold);
-      text-transform: uppercase; margin-bottom: 16px;
-      display: flex; align-items: center; gap: 12px;
-    }
+    .section-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
     .section-tag::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(32px, 4vw, 48px); color: var(--white);
-      margin-bottom: 56px; max-width: 600px;
-    }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(30px, 4vw, 44px); color: var(--white); margin-bottom: 48px; max-width: 560px; }
     .section-divider { border: none; border-top: 1px solid rgba(46,117,182,0.15); margin: 0 48px; }
-
     #skills { background: var(--deep); }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; }
-    .skill-card {
-      padding: 32px 28px; background: rgba(10,22,40,0.6);
-      border: 1px solid rgba(46,117,182,0.1); transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .skill-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 2px; background: var(--accent); transform: scaleX(0);
-      transform-origin: left; transition: transform 0.3s;
-    }
+    .skill-card { padding: 28px 24px; background: rgba(10,22,40,0.6); border: 1px solid rgba(46,117,182,0.1); transition: all 0.3s; position: relative; overflow: hidden; }
+    .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
     .skill-card:hover::before { transform: scaleX(1); }
-    .skill-card:hover { background: rgba(46,117,182,0.08); }
-    .skill-card.featured { border-color: rgba(46,117,182,0.4); background: rgba(46,117,182,0.06); }
+    .skill-card:hover { background: rgba(46,117,182,0.07); }
+    .skill-card.featured { border-color: rgba(46,117,182,0.38); background: rgba(46,117,182,0.06); }
     .skill-card.featured::before { transform: scaleX(1); background: var(--bright); }
-    .skill-icon { font-size: 22px; margin-bottom: 14px; }
-    .skill-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--bright); margin-bottom: 10px;
-    }
+    .skill-icon { font-size: 20px; margin-bottom: 12px; }
+    .skill-name { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--bright); margin-bottom: 10px; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .skill-tag { font-size: 11px; color: var(--muted); padding: 3px 8px; border: 1px solid rgba(255,255,255,0.08); }
-    .skill-tag.hl { color: var(--bright); border-color: rgba(79,163,224,0.3); }
-
+    .skill-tag.hl { color: var(--bright); border-color: rgba(79,163,224,0.28); }
+    .skill-note { font-size: 11px; color: var(--muted); margin-top: 10px; font-style: italic; }
     #experience { background: var(--navy); }
-    .exp-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
-    .exp-item {
-      display: grid; grid-template-columns: 160px 1fr; gap: 0 40px;
-      padding: 40px 0; border-bottom: 1px solid rgba(46,117,182,0.1);
-    }
+    .exp-list { display: flex; flex-direction: column; max-width: 840px; }
+    .exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 0 36px; padding: 36px 0; border-bottom: 1px solid rgba(46,117,182,0.1); }
     .exp-item:first-child { border-top: 1px solid rgba(46,117,182,0.1); }
-    .exp-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--muted); padding-top: 4px; }
+    .exp-date { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--muted); padding-top: 4px; line-height: 1.5; }
     .exp-company { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .exp-role { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--white); margin-bottom: 16px; }
+    .exp-role { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--white); margin-bottom: 14px; }
     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .exp-bullets li { font-size: 14px; line-height: 1.6; color: var(--muted); padding-left: 18px; position: relative; }
-    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
+    .exp-bullets li { font-size: 14px; line-height: 1.6; color: var(--muted); padding-left: 16px; position: relative; }
+    .exp-bullets li::before { content: '&#8212;'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
     .exp-bullets li strong { color: var(--text); font-weight: 500; }
-
-    #projects { background: var(--deep); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .project-card {
-      padding: 36px 32px; border: 1px solid rgba(46,117,182,0.15);
-      background: rgba(10,22,40,0.5); transition: all 0.3s;
-    }
-    .project-card:hover { border-color: rgba(46,117,182,0.5); transform: translateY(-4px); }
-    .project-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); margin-bottom: 20px; }
-    .project-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
-    .project-desc { font-size: 13px; line-height: 1.65; color: var(--muted); margin-bottom: 20px; }
-    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tech-pill { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 4px 10px; border: 1px solid rgba(46,117,182,0.3); color: var(--accent); }
-
-    #ai-tools { background: var(--navy); }
-    .ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-    .ai-card { padding: 28px 24px; border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.04); transition: all 0.25s; }
-    .ai-card:hover { background: rgba(201,168,76,0.09); }
+    #ai-tools { background: var(--deep); }
+    .ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+    .ai-card { padding: 24px 20px; border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.04); transition: all 0.25s; }
+    .ai-card:hover { background: rgba(201,168,76,0.08); }
     .ai-card-name { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 1px; color: var(--gold); margin-bottom: 8px; }
-    .ai-card-use { font-size: 12px; line-height: 1.5; color: var(--muted); }
-    .cert-banner {
-      margin-top: 40px; padding: 24px 32px;
-      border: 1px solid rgba(201,168,76,0.35); background: rgba(201,168,76,0.06);
-      display: flex; align-items: center; gap: 20px;
-    }
-    .cert-icon { font-size: 28px; }
+    .ai-card-use { font-size: 12px; line-height: 1.55; color: var(--muted); }
+    .cert-banner { margin-top: 36px; padding: 22px 28px; border: 1px solid rgba(201,168,76,0.35); background: rgba(201,168,76,0.05); display: flex; align-items: center; gap: 18px; }
+    .cert-icon { font-size: 26px; }
     .cert-text { font-size: 14px; line-height: 1.5; color: var(--text); }
     .cert-text strong { color: var(--gold); }
-
-    #certifications { background: var(--deep); }
-    .cert-list { display: flex; flex-direction: column; gap: 12px; max-width: 700px; }
-    .cert-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 24px; border: 1px solid rgba(46,117,182,0.12);
-      background: rgba(10,22,40,0.4); transition: all 0.2s;
-    }
+    #certifications { background: var(--navy); }
+    .cert-list { display: flex; flex-direction: column; gap: 10px; max-width: 680px; }
+    .cert-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; border: 1px solid rgba(46,117,182,0.12); background: rgba(10,22,40,0.4); transition: all 0.2s; }
     .cert-row:hover { border-color: rgba(46,117,182,0.35); background: rgba(46,117,182,0.05); }
     .cert-title { font-size: 14px; color: var(--text); }
-    .cert-issuer { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+    .cert-issuer { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin-top: 3px; }
     .cert-status { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 4px 10px; white-space: nowrap; }
     .cert-status.active { border: 1px solid rgba(79,163,224,0.4); color: var(--bright); }
     .cert-status.verified { border: 1px solid rgba(46,182,125,0.4); color: #5de0a8; }
     .cert-status.done { border: 1px solid rgba(255,255,255,0.12); color: var(--muted); }
-
-    #contact { background: var(--navy); }
-    .contact-inner { max-width: 600px; }
-    .contact-inner p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 40px; }
-    .contact-links { display: flex; flex-direction: column; gap: 12px; }
-    .contact-link {
-      display: flex; align-items: center; gap: 16px; padding: 18px 24px;
-      border: 1px solid rgba(46,117,182,0.15); text-decoration: none;
-      color: var(--text); transition: all 0.25s;
-    }
-    .contact-link:hover { border-color: rgba(46,117,182,0.5); background: rgba(46,117,182,0.06); }
+    #contact { background: var(--deep); }
+    .contact-inner { max-width: 560px; }
+    .contact-inner p { font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 36px; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link { display: flex; align-items: center; gap: 16px; padding: 16px 22px; border: 1px solid rgba(46,117,182,0.15); text-decoration: none; color: var(--text); transition: all 0.25s; }
+    .contact-link:hover { border-color: rgba(46,117,182,0.45); background: rgba(46,117,182,0.06); }
     .contact-link-icon { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--accent); text-transform: uppercase; min-width: 60px; }
     .contact-link-val { font-size: 14px; }
-
-    footer {
-      padding: 32px 48px; border-top: 1px solid rgba(46,117,182,0.12);
-      display: flex; justify-content: space-between; align-items: center;
-      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--muted);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero-inner > * { animation: fadeUp 0.7s ease both; }
+    footer { padding: 28px 48px; border-top: 1px solid rgba(46,117,182,0.12); display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeUp 0.65s ease both; }
     .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
     .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
     .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
     .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
     .hero-inner > *:nth-child(6) { animation-delay: 0.6s; }
-
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .nav-links { gap: 20px; }
-      section { padding: 72px 24px; }
-      .hero { padding: 100px 24px 60px; }
-      .exp-item { grid-template-columns: 1fr; gap: 8px; }
-      footer { padding: 24px; flex-direction: column; gap: 8px; }
-      .section-divider { margin: 0 24px; }
+      nav { padding: 14px 20px; } .nav-links { gap: 16px; }
+      section { padding: 64px 20px; } .hero { padding: 100px 20px 60px; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+      .section-divider { margin: 0 20px; }
     }
   </style>
 </head>
@@ -266,7 +122,6 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#ai-tools">AI Tools</a></li>
       <li><a href="#certifications">Certs</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -275,23 +130,21 @@
 
   <section class="hero" id="about">
     <div class="hero-inner">
-      <div class="hero-tag">Available for SQL Developer roles</div>
+      <div class="hero-tag">Open to SQL Developer roles</div>
       <h1>Dhruv<br/><em>Shirsale</em></h1>
-      <div class="hero-sub">SQL Developer (T-SQL) · Data Engineering · IntelliBI</div>
-      <p class="hero-desc">
-        Fresher SQL developer with paid internship experience at Intelli BI Innovations Technologies — writing production T-SQL on 500K+ row datasets, building star-schema dimensional models, and tuning query execution plans to ~30% faster run-times. Based in Pune, open to Bhiwandi / remote.
-      </p>
+      <div class="hero-sub">SQL Developer &middot; Data Engineering &middot; Fresher</div>
+      <p class="hero-desc">Fresher with real internship experience writing T-SQL on live datasets at Intelli BI Innovations Technologies. Comfortable with joins, unions, and window functions. Theoretical grounding in star and snowflake schema. Basic Azure exposure. Actively learning and growing every day.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn-primary">Get in touch</a>
-        <a href="#projects" class="btn-outline">View Projects</a>
+        <a href="#experience" class="btn-outline">View Experience</a>
       </div>
       <div class="badge-strip">
         <span class="badge">T-SQL</span>
         <span class="badge">MS SQL Server</span>
-        <span class="badge">Star Schema</span>
-        <span class="badge">Azure Synapse</span>
-        <span class="badge">Index Tuning</span>
-        <span class="badge gold">Anthropic Cert — In Progress</span>
+        <span class="badge">Joins &amp; Unions</span>
+        <span class="badge">Window Functions</span>
+        <span class="badge">Azure (Basic)</span>
+        <span class="badge gold">Anthropic Cert &mdash; In Progress</span>
       </div>
     </div>
   </section>
@@ -300,54 +153,42 @@
 
   <section id="skills">
     <div class="section-tag">Core Competencies</div>
-    <h2 class="section-title">Built around SQL. Powered by data.</h2>
+    <h2 class="section-title">Honest skills. Ready to grow.</h2>
     <div class="skills-grid">
       <div class="skill-card featured">
-        <div class="skill-icon">🗄️</div>
-        <div class="skill-name">T-SQL / MS SQL</div>
+        <div class="skill-icon">&#128452;</div>
+        <div class="skill-name">SQL / T-SQL</div>
         <div class="skill-tags">
-          <span class="skill-tag hl">Stored Procedures</span>
-          <span class="skill-tag hl">CTEs</span>
+          <span class="skill-tag hl">Joins</span>
+          <span class="skill-tag hl">UNION / UNION ALL</span>
           <span class="skill-tag hl">Window Functions</span>
-          <span class="skill-tag hl">Dynamic SQL</span>
-          <span class="skill-tag hl">Triggers</span>
-          <span class="skill-tag hl">MERGE</span>
+          <span class="skill-tag hl">Subqueries</span>
+          <span class="skill-tag hl">Aggregations</span>
+          <span class="skill-tag hl">Basic Stored Procedures</span>
         </div>
       </div>
       <div class="skill-card featured">
-        <div class="skill-icon">⚡</div>
-        <div class="skill-name">Query Optimisation</div>
-        <div class="skill-tags">
-          <span class="skill-tag hl">Execution Plans</span>
-          <span class="skill-tag hl">Index Tuning</span>
-          <span class="skill-tag hl">~30% Speed Gain</span>
-          <span class="skill-tag hl">SSMS Profiler</span>
-        </div>
-      </div>
-      <div class="skill-card featured">
-        <div class="skill-icon">📐</div>
-        <div class="skill-name">Dimensional Modelling</div>
+        <div class="skill-icon">&#128208;</div>
+        <div class="skill-name">Data Modelling</div>
         <div class="skill-tags">
           <span class="skill-tag hl">Star Schema</span>
-          <span class="skill-tag hl">Fact Tables</span>
-          <span class="skill-tag hl">Dim Tables</span>
-          <span class="skill-tag hl">3NF</span>
-          <span class="skill-tag hl">Normalisation</span>
+          <span class="skill-tag hl">Snowflake Schema</span>
+          <span class="skill-tag hl">Fact &amp; Dim Tables</span>
         </div>
+        <div class="skill-note">Theoretical knowledge &amp; internship exposure</div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">☁️</div>
-        <div class="skill-name">Azure Data Platform</div>
+        <div class="skill-icon">&#9729;</div>
+        <div class="skill-name">Azure (Basic)</div>
         <div class="skill-tags">
-          <span class="skill-tag">Synapse Analytics</span>
           <span class="skill-tag">Data Factory (ADF)</span>
-          <span class="skill-tag">Databricks</span>
-          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">Synapse Analytics</span>
         </div>
+        <div class="skill-note">Basic working knowledge from internship</div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">📊</div>
-        <div class="skill-name">BI & Reporting</div>
+        <div class="skill-icon">&#128202;</div>
+        <div class="skill-name">BI &amp; Reporting</div>
         <div class="skill-tags">
           <span class="skill-tag">Power BI</span>
           <span class="skill-tag">Tableau</span>
@@ -355,13 +196,23 @@
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🛠️</div>
-        <div class="skill-name">Dev & Ops</div>
+        <div class="skill-icon">&#128295;</div>
+        <div class="skill-name">Dev &amp; Tools</div>
         <div class="skill-tags">
-          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SSMS</span>
+          <span class="skill-tag">Python (basic)</span>
           <span class="skill-tag">Git / GitHub</span>
-          <span class="skill-tag">ETL Pipelines</span>
-          <span class="skill-tag">Data Validation</span>
+          <span class="skill-tag">ETL Concepts</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">&#129302;</div>
+        <div class="skill-name">AI Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude</span>
+          <span class="skill-tag">Gemini</span>
+          <span class="skill-tag">Perplexity</span>
+          <span class="skill-tag">Antigravity</span>
         </div>
       </div>
     </div>
@@ -371,86 +222,43 @@
 
   <section id="experience">
     <div class="section-tag">Work History</div>
-    <h2 class="section-title">Real-world SQL, shipped.</h2>
+    <h2 class="section-title">Real work. Real data.</h2>
     <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date">Jan 2025<br/>Mar 2025</div>
-        <div>
-          <div class="exp-company">Intelli BI Innovations Technologies Pvt. Ltd.</div>
-          <div class="exp-role">Junior Azure Data Engineer</div>
-          <ul class="exp-bullets">
-            <li>Wrote advanced <strong>T-SQL</strong> queries — CTEs, window functions, dynamic SQL, MERGE — on sales &amp; healthcare datasets with <strong>500K+ monthly records</strong>.</li>
-            <li>Built end-to-end <strong>star schema dimensional models</strong> (fact + dimension tables) for BI reporting pipelines.</li>
-            <li>Tuned execution plans in <strong>SSMS</strong>; achieved <strong>~30% query speed improvement</strong> via index optimisation and query restructuring.</li>
-            <li>Developed PySpark transformations in <strong>Azure Databricks</strong>; orchestrated pipelines with <strong>Azure Data Factory</strong>.</li>
-            <li>Collaborated on data quality validation and pipeline docs with version control in Git.</li>
-          </ul>
-        </div>
-      </div>
       <div class="exp-item">
         <div class="exp-date">Oct 2025<br/>Jan 2026</div>
         <div>
           <div class="exp-company">Qtrans Translation Inc.</div>
-          <div class="exp-role">Management &amp; Data Operations Intern (Paid)</div>
+          <div class="exp-role">Management &amp; Data Operations Intern <span style="font-size:13px;color:var(--gold)">(Paid)</span></div>
           <ul class="exp-bullets">
-            <li>Managed &amp; audited vendor databases for 200+ profiles per project applying SQL-style data integrity and deduplication practices.</li>
-            <li>Designed structured intake templates reducing manual errors in onboarding workflows.</li>
-            <li>Used <strong>Claude, Gemini, Perplexity</strong> to accelerate data transformation and lookup logic.</li>
+            <li>Managed and audited structured vendor databases for 200+ profiles per project, ensuring data accuracy, compliance, and NDA verification.</li>
+            <li>Built Excel workbooks using pivot tables, VLOOKUP, conditional formatting, and data validation for project tracking.</li>
+            <li>Designed data-entry templates that reduced manual errors and improved vendor onboarding turnaround.</li>
+            <li>Used <strong>Claude, Gemini, Perplexity, and Antigravity</strong> to support data transformation and workflow documentation.</li>
           </ul>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-date">Jun 2025</div>
         <div>
-          <div class="exp-company">Deloitte Australia — Forage Platform</div>
+          <div class="exp-company">Deloitte Australia &mdash; Forage</div>
           <div class="exp-role">Data Analytics Simulation</div>
           <ul class="exp-bullets">
-            <li>Analysed KPI datasets with Excel pivot tables; built a Tableau dashboard for stakeholder reporting.</li>
-            <li>Applied aggregation and calculated field logic equivalent to SQL GROUP BY / window functions.</li>
+            <li>Analysed KPI datasets using Excel and built a Tableau dashboard to surface insights for stakeholders.</li>
+            <li>Translated raw data into structured summaries and visual narratives for decision-making.</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <hr class="section-divider"/>
-
-  <section id="projects">
-    <div class="section-tag">SQL Projects</div>
-    <h2 class="section-title">T-SQL, built end-to-end.</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-num">01 / IntelliBI</div>
-        <div class="project-title">Healthcare Data Pipeline</div>
-        <p class="project-desc">Designed a multi-table star schema for a 500K+ row healthcare dataset. Wrote stored procedures for ingestion, cleansing (NULL handling, deduplication), and reporting aggregates. Reduced query execution from ~12s to ~4s using covering indexes in SSMS.</p>
-        <div class="project-tech">
-          <span class="tech-pill">T-SQL</span>
-          <span class="tech-pill">Azure Synapse</span>
-          <span class="tech-pill">Star Schema</span>
-          <span class="tech-pill">Index Tuning</span>
-          <span class="tech-pill">MERGE</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-num">02 / IntelliBI</div>
-        <div class="project-title">Sales Analytics Dimensional Model</div>
-        <p class="project-desc">Built a dimensional model for FMCG sales distribution: fact table with date, product, region, and channel dimensions. Wrote window function queries (ROW_NUMBER, RANK, LAG/LEAD) for trend and cohort analysis. DDL + ETL scripts versioned in Git.</p>
-        <div class="project-tech">
-          <span class="tech-pill">MS SQL Server</span>
-          <span class="tech-pill">Window Functions</span>
-          <span class="tech-pill">ADF</span>
-          <span class="tech-pill">Git</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-num">03 / Personal</div>
-        <div class="project-title">Vendor DB Normalisation</div>
-        <p class="project-desc">Re-modelled a flat 200-entry Excel vendor database into a normalised 3NF relational schema. Scripted full T-SQL DDL and DML for data migration. Enforced referential integrity with check constraints, foreign keys, and unique indexes.</p>
-        <div class="project-tech">
-          <span class="tech-pill">T-SQL</span>
-          <span class="tech-pill">3NF Design</span>
-          <span class="tech-pill">DDL / DML</span>
-          <span class="tech-pill">Referential Integrity</span>
+      <div class="exp-item">
+        <div class="exp-date">Jan 2025<br/>Mar 2025</div>
+        <div>
+          <div class="exp-company">Intelli BI Innovations Technologies</div>
+          <div class="exp-role">Junior Azure Data Engineer</div>
+          <ul class="exp-bullets">
+            <li>Wrote T-SQL queries on sales and healthcare datasets using <strong>joins, unions, and window functions</strong> for data cleansing and transformation in MS SQL Server / SSMS.</li>
+            <li>Assisted in data pipeline tasks; gained exposure to <strong>star schema</strong> dimensional modelling concepts.</li>
+            <li>Basic working exposure to <strong>Azure Data Factory</strong> and <strong>Azure Synapse Analytics</strong> as part of pipeline setup.</li>
+            <li>Contributed to data quality checks and pipeline documentation; used Git for version control.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -460,30 +268,30 @@
 
   <section id="ai-tools">
     <div class="section-tag">AI-Augmented Workflow</div>
-    <h2 class="section-title">SQL + AI — a modern stack.</h2>
+    <h2 class="section-title">Learning faster with AI.</h2>
     <div class="ai-grid">
       <div class="ai-card">
         <div class="ai-card-name">Claude (Anthropic)</div>
-        <div class="ai-card-use">Query drafting, stored procedure review, schema design exploration, and debugging complex T-SQL logic.</div>
+        <div class="ai-card-use">Query writing support, understanding SQL concepts, reviewing logic, and learning best practices.</div>
       </div>
       <div class="ai-card">
         <div class="ai-card-name">Gemini (Google)</div>
-        <div class="ai-card-use">Azure documentation lookups, PySpark pattern suggestions, and data modelling reference queries.</div>
+        <div class="ai-card-use">Azure documentation, data modelling concepts, and quick reference lookups.</div>
       </div>
       <div class="ai-card">
         <div class="ai-card-name">Perplexity</div>
-        <div class="ai-card-use">Real-time research on SQL best practices, index strategies, and execution plan interpretation.</div>
+        <div class="ai-card-use">Research on SQL techniques, schema design patterns, and industry practices.</div>
       </div>
       <div class="ai-card">
         <div class="ai-card-name">Antigravity</div>
-        <div class="ai-card-use">Workflow automation and task management assistance during data operations projects.</div>
+        <div class="ai-card-use">Workflow automation and task management support during data operations work.</div>
       </div>
     </div>
     <div class="cert-banner">
-      <div class="cert-icon">📜</div>
+      <div class="cert-icon">&#128220;</div>
       <div class="cert-text">
-        <strong>Anthropic AI Certification (Free Tier)</strong> — Currently completing, April 2026.<br/>
-        Building foundational knowledge in responsible AI development and LLM application design.
+        <strong>Anthropic AI Certification (Free Tier)</strong> &mdash; Currently completing, April 2026.<br/>
+        Building foundational understanding of responsible AI and LLM application design.
       </div>
     </div>
   </section>
@@ -495,38 +303,23 @@
     <h2 class="section-title">Verified learning.</h2>
     <div class="cert-list">
       <div class="cert-row">
-        <div>
-          <div class="cert-title">Anthropic AI Certification (Free Tier)</div>
-          <div class="cert-issuer">Anthropic</div>
-        </div>
+        <div><div class="cert-title">Anthropic AI Certification (Free Tier)</div><div class="cert-issuer">Anthropic</div></div>
         <span class="cert-status active">In Progress</span>
       </div>
       <div class="cert-row">
-        <div>
-          <div class="cert-title">IBM Z Day 2025 — AI &amp; Data Badge</div>
-          <div class="cert-issuer">IBM · Credly</div>
-        </div>
+        <div><div class="cert-title">IBM Z Day 2025 &mdash; AI &amp; Data Badge</div><div class="cert-issuer">IBM &middot; Credly</div></div>
         <span class="cert-status verified">Verified</span>
       </div>
       <div class="cert-row">
-        <div>
-          <div class="cert-title">Generative AI Mastermind</div>
-          <div class="cert-issuer">Outkill</div>
-        </div>
+        <div><div class="cert-title">Generative AI Mastermind</div><div class="cert-issuer">Outkill</div></div>
         <span class="cert-status done">Completed</span>
       </div>
       <div class="cert-row">
-        <div>
-          <div class="cert-title">SAP MM ERP 7 — Sourcing &amp; Procurement</div>
-          <div class="cert-issuer">SAP Education</div>
-        </div>
+        <div><div class="cert-title">SAP MM ERP 7 &mdash; Sourcing &amp; Procurement</div><div class="cert-issuer">SAP Education</div></div>
         <span class="cert-status done">2021</span>
       </div>
       <div class="cert-row">
-        <div>
-          <div class="cert-title">Software Testing</div>
-          <div class="cert-issuer">Ssquare IT Solutions</div>
-        </div>
+        <div><div class="cert-title">Software Testing</div><div class="cert-issuer">Ssquare IT Solutions</div></div>
         <span class="cert-status done">2024</span>
       </div>
     </div>
@@ -536,32 +329,20 @@
 
   <section id="contact">
     <div class="section-tag">Get in Touch</div>
-    <h2 class="section-title">Let's build something with data.</h2>
+    <h2 class="section-title">Open to opportunities.</h2>
     <div class="contact-inner">
-      <p>Open to SQL Developer roles — fresher-friendly, real-time project environments. Reach out via WhatsApp or email (no calls, please).</p>
+      <p>Looking for SQL Developer roles &mdash; fresher-friendly teams with real-time projects. Reach out via WhatsApp or email only (no calls please).</p>
       <div class="contact-links">
-        <a href="mailto:dhruva.shirsale@gmail.com" class="contact-link">
-          <span class="contact-link-icon">Email</span>
-          <span class="contact-link-val">dhruva.shirsale@gmail.com</span>
-        </a>
-        <a href="https://wa.me/919168165008" class="contact-link" target="_blank">
-          <span class="contact-link-icon">WhatsApp</span>
-          <span class="contact-link-val">+91 9168165008</span>
-        </a>
-        <a href="https://linkedin.com/in/dhruvshirsale" class="contact-link" target="_blank">
-          <span class="contact-link-icon">LinkedIn</span>
-          <span class="contact-link-val">linkedin.com/in/dhruvshirsale</span>
-        </a>
-        <a href="https://github.com/dhruvshirsale" class="contact-link" target="_blank">
-          <span class="contact-link-icon">GitHub</span>
-          <span class="contact-link-val">github.com/dhruvshirsale</span>
-        </a>
+        <a href="mailto:dhruva.shirsale@gmail.com" class="contact-link"><span class="contact-link-icon">Email</span><span class="contact-link-val">dhruva.shirsale@gmail.com</span></a>
+        <a href="https://wa.me/919168165008" class="contact-link" target="_blank"><span class="contact-link-icon">WhatsApp</span><span class="contact-link-val">+91 9168165008</span></a>
+        <a href="https://linkedin.com/in/dhruvshirsale" class="contact-link" target="_blank"><span class="contact-link-icon">LinkedIn</span><span class="contact-link-val">linkedin.com/in/dhruvshirsale</span></a>
+        <a href="https://github.com/dhruvshirsale" class="contact-link" target="_blank"><span class="contact-link-icon">GitHub</span><span class="contact-link-val">github.com/dhruvshirsale</span></a>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>Dhruv Shirsale · SQL Developer · Pune, India</span>
+    <span>Dhruv Shirsale &middot; SQL Developer &middot; Pune</span>
     <span>dhruvshirsale.github.io</span>
   </footer>
 
